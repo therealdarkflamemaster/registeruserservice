@@ -14,7 +14,7 @@ public class User {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = false)
@@ -23,8 +23,10 @@ public class User {
     @Column(nullable = false)
     private String residence;
 
+    @Column
     private String phoneNumber;
 
+    @Column
     private String gender;
 
     public User() {
@@ -37,6 +39,15 @@ public class User {
         this.residence = residence;
     }
 
+    public User(String username, Date brithdate, String residence, String phoneNumber, String gender) {
+        this.username = username;
+        this.brithdate = brithdate;
+        this.residence = residence;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+    }
+
+
 
     public Date getBrithdate() {
         return brithdate;
@@ -46,4 +57,15 @@ public class User {
         return residence;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getGender() {
+        return gender;
+    }
 }
