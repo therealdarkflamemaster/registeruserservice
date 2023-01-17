@@ -1,7 +1,6 @@
 package com.example.registeruserservice.controller;
 
 import com.example.registeruserservice.model.User;
-import com.example.registeruserservice.service.intf.IUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +16,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,10 +24,6 @@ public class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
-
-    private IUserService userService = mock(IUserService.class);
-
-    private UserController userController = new UserController(userService);
     private ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
