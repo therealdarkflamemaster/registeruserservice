@@ -16,11 +16,18 @@ Link : POST http://localhost:8080/user
 - Find a user by its Id
 
 A id is entitled to a user when it's created. 
-If it's found, it will be returned which the necessary infos stored in the datebase, like username. 
+If it's found, it will be returned which the necessary infos stored in the database, like username. 
 If not, it will return a http status 404. 
 
-
 Link : GET http://localhost:8080/user/{id}
+
+- Find a user by its name
+
+If it's found, it will be returned which the necessary infos stored in the database, like residence.
+If not, it will return a http status 404.
+
+
+Link : GET http://localhost:8080/user/name/{name}
 
 ### How to build from the source
 - Git clone

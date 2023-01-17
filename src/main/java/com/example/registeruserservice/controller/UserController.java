@@ -64,5 +64,21 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "/name/{name}", method = RequestMethod.GET, produces = "application/json")
+    @LogExecutionTime
+    @Operation(summary = "Get user by user's name", tags = { "user" })
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "successful operation", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)), @Content(mediaType = "application/xml", schema = @Schema(implementation = User.class)) }),
+            @ApiResponse(responseCode = "404", description = "User not found", content = @Content) })
+    public ResponseEntity findUserByName(
+            @Parameter(description = "The name that needs to be found", required = true) @PathVariable("name") String name) {
+        Optional<User> users = userService.findUserByName(name);
+        if(!users.isEmpty()) {
+            return ResponseEntity.ok(users);
+        }else {
+            return  new ResponseEntity<> ("User not found", HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }
 

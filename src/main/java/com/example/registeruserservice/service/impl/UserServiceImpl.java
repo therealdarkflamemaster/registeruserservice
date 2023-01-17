@@ -49,5 +49,10 @@ public class UserServiceImpl implements IUserService {
         return Optional.of(result);
     }
 
+    @Override
+    public Optional<User> findUserByName(String name) {
+        return userRepository.findByName(name);
+    }
+
 }
 

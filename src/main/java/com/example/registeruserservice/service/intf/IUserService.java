@@ -10,4 +10,6 @@ public interface IUserService {
     User register(User user) throws UserException;
 
     Optional<User> findUserById(Long id);
+
+    Optional<User> findUserByName(String name);
 }
