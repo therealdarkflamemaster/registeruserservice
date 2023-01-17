@@ -2,7 +2,6 @@ package com.example.registeruserservice.service.impl;
 
 
 import com.example.registeruserservice.model.User;
-import com.example.registeruserservice.model.UserResult;
 import com.example.registeruserservice.model.dto.UserException;
 import com.example.registeruserservice.repository.IUserRepository;
 import com.example.registeruserservice.service.intf.IUserService;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -27,7 +25,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User register(User user) throws UserException{
-
         if(!user.getResidence().equals("france") && !user.getResidence().equals("France")) {
             throw new UserException("Not a france residence");
         }
@@ -52,10 +49,5 @@ public class UserServiceImpl implements IUserService {
         return Optional.of(result);
     }
 
-    @Override
-    public User findUserByUserName(String username) { // TODO:
-        // return userRepository.findBy().orElse(null);
-        return null;
-    }
 }
 

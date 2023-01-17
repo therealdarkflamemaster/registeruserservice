@@ -21,8 +21,12 @@ public class UserServiceImplTest {
 
     @Test
     public void test_register() {
-        User user1 = new User("usertest1", new GregorianCalendar(2000, Calendar.FEBRUARY, 11).getTime(), "france");
-        User user2 = new User("usertest2", new GregorianCalendar(1998, Calendar.FEBRUARY, 11).getTime(), "France");
+        User user1 = new User("usertest1",
+                new GregorianCalendar(2000, Calendar.FEBRUARY, 11).getTime(),
+                "france");
+        User user2 = new User("usertest2",
+                new GregorianCalendar(1998, Calendar.FEBRUARY, 11).getTime(),
+                "France");
 
         when(userRepository.save(user1)).thenReturn(user1);
         when(userRepository.save(user2)).thenReturn(user2);
@@ -33,8 +37,12 @@ public class UserServiceImplTest {
 
     @Test
     public void test_fail_register() {
-        User user1 = new User("usertest1", new GregorianCalendar(2020, Calendar.FEBRUARY, 11).getTime(), "france");
-        User user2 = new User("usertest2", new GregorianCalendar(1998, Calendar.FEBRUARY, 11).getTime(), "Japan");
+        User user1 = new User("usertest1",
+                new GregorianCalendar(2020, Calendar.FEBRUARY, 11).getTime(),
+                "france");
+        User user2 = new User("usertest2",
+                new GregorianCalendar(1998, Calendar.FEBRUARY, 11).getTime(),
+                "Japan");
 
         {
             UserException thrownException = assertThrows(UserException.class,
@@ -61,7 +69,7 @@ public class UserServiceImplTest {
         }
 
         {
-            when(userRepository.findById(id)).thenReturn(Optional.ofNullable(null));
+            when(userRepository.findById(id)).thenReturn(Optional.empty());
 
             assertFalse(userService.findUserById(id).isPresent());
         }

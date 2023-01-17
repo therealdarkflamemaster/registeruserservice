@@ -1,7 +1,6 @@
 package com.example.registeruserservice.controller;
 
 import com.example.registeruserservice.model.User;
-import com.example.registeruserservice.model.UserResult;
 import com.example.registeruserservice.model.dto.UserException;
 import com.example.registeruserservice.service.intf.IUserService;
 import com.example.registeruserservice.utils.log.LogExecutionTime;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +17,10 @@ public class UserController {
 
     @Resource
     private IUserService userService;
+
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("")
     @LogExecutionTime

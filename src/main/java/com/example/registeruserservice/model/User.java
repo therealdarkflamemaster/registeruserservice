@@ -20,18 +20,22 @@ public class User {
     @Column(nullable = false)
     private Date brithdate;
 
-    public User(String username, Date brithdate, String residence) {
-        this.username = username;
-        this.brithdate = brithdate;
-        this.residence = residence;
-    }
-
     @Column(nullable = false)
     private String residence;
 
     private String phoneNumber;
 
     private String gender;
+
+    public User() {
+
+    }
+
+    public User(String username, Date brithdate, String residence) {
+        this.username = username;
+        this.brithdate = brithdate;
+        this.residence = residence;
+    }
 
 
     public Date getBrithdate() {
