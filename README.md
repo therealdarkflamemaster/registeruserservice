@@ -26,3 +26,16 @@ Link : GET http://localhost:8080/user/{id}
 - Git clone
 - Install maven dependencies
 - Build and run the project
+
+### What has been done
+- SpringDataJPA and H2
+  src/main/java/com/example/registeruserservice/repository/IUserRepository.java
+- Swagger of OpenAPI
+- Logs (calculation of the time)
+  src/main/java/com/example/registeruserservice/utils/log
+- Unit Test
+  src/test/java/com/example/registeruserservice/service/impl/UserServiceImplTest.java
+- Integration Test
+  src/test/java/com/example/registeruserservice/controller/UserControllerTest.java
+- Custom Exception
+  src/main/java/com/example/registeruserservice/model/dto/UserException.java
